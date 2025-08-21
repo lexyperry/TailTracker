@@ -28,3 +28,16 @@ export async function patchTaskStatus(id, status) {
     return r.json();
     
 }
+export async function createTask(body){
+    const r = await fetch(`${API}/tasks`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ body })
+    });
+
+    if (!r.ok) {
+        const text=await r.text();
+        throw new Error(text || "Failed to create tasks")
+    }
+    return r.json();
+}
