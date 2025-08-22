@@ -4,11 +4,7 @@ import { getPets } from "../api";
 import { createTask } from "../api";
 
 function toISOFromLocal(dateStr, timeStr) {
-  // dateStr: "2025-08-21", timeStr: "09:30"
-  const [y, m, d] = dateStr.split("-").map(Number);
-  const [hh, mm] = timeStr.split(":").map(Number);
-  const dt = new Date(y, m - 1, d, hh, mm, 0);
-  return dt.toISOString();
+  return `${dateStr}T${timeStr}:00`;
 }
 
 export default function NewTask() {

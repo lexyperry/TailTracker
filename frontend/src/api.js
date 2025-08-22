@@ -63,7 +63,7 @@ export async function createTask(body){
     const r = await fetch(`${API}/tasks`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ body })
+        body: JSON.stringify(body)
     });
 
     if (!r.ok) {
